@@ -1,0 +1,28 @@
+query GetRepoListForQuery(
+    $last: Int!
+    $query: String!
+) {
+    search(last: $last, query: $query, type: REPOSITORY) {
+        nodes {
+            ... on Repository {
+                name
+                description
+                url
+                createdAt
+                homepageUrl
+                languages(last: 10) {
+                    nodes {
+                        name
+                    }
+                }
+                owner {
+                    avatarUrl
+                    login
+                    url
+                }
+                stargazerCount
+                isPrivate
+            }
+        }
+    }
+}
