@@ -7,12 +7,18 @@ android {
     namespace 'com.demo.githublogin'
     compileSdk 33
 
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
     defaultConfig {
         minSdk 29
         targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "GITHUB_CLIENT_ID", localProperties['GITHUB_CLIENT_ID']
+        buildConfigField "String", "GITHUB_CLIENT_SECRET", localProperties['GITHUB_CLIENT_SECRET']
     }
 
     buildTypes {
@@ -27,6 +33,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    viewBinding {
+        enabled true
     }
 }
 
@@ -45,4 +55,7 @@ dependencies {
 
     // AppAuth
     implementation 'net.openid:appauth:0.11.1'
+
+    // Encryption
+    implementation "androidx.security:security-crypto:1.0.0"
 }

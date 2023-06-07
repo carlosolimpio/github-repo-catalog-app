@@ -8,9 +8,9 @@ android {
     namespace 'com.demo.repolist'
     compileSdk 33
 
-    Properties properties = new Properties()
-    properties.load(project.rootProject.file("local.properties").newDataInputStream())
-    String token = properties.getProperty("API_TOKEN")
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+    def token = localProperties['API_TOKEN']
 
     defaultConfig {
         minSdk 29

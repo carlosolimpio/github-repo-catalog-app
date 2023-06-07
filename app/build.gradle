@@ -46,6 +46,9 @@ dependencies {
     implementation "io.insert-koin:koin-core:3.4.0"
     implementation "io.insert-koin:koin-android:3.4.0"
 
+    // AppAuth
+    implementation 'net.openid:appauth:0.11.1'
+
     implementation project(':features:repolist')
     implementation project(':features:githublogin')
 }
