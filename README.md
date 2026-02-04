@@ -1,6 +1,9 @@
 # Github Repository Catalog App
 
-Note on Apollo GraphQL:
+## Storing the secrets
+Store the necessary secrets in `local.properties` file.
+
+## Note on Apollo GraphQL:
   * in order to download schema, first I needed to set in gradle.properties: ```android.defaults.buildfeatures.buildconfig=true```
   * then download the schema manually using:
     ```bash
