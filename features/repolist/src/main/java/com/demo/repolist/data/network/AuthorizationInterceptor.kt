@@ -9,7 +9,7 @@ class AuthorizationInterceptor : Interceptor {
         return chain.proceed(
             chain.request()
                 .newBuilder()
-                .addHeader("Authorization", "Bearer ${BuildConfig.API_TOKEN}")
+//                .addHeader("Authorization", "Bearer ${BuildConfig.API_TOKEN}")
                 .build()
         )
     }
